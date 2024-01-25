@@ -1,0 +1,2 @@
+# EZQRGenerater
+EZ QR Generater
