@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EZ QR Generater</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+</head>
+<body>
+    <div>
+        <label id="label">EZ QR Generater</label>
+    </div>
+    <input type="text" id="text-input" placeholder="URL">
+    <div>
+        <button class="button" onclick="generateQRCode()">Generate QR</button>
+        <button class="button" onclick="downloadQRCode()">Download QR (png)</button>
+    </div>
+    <div>
+        <div id="qrcode"></div>
+    </div>
+    <div>
+        <span>Fast, Easy, Simple</span>
+    </div>
+
+    <script>
+        var generatedQRCode = null;
+
+        function generateQRCode() {
+            var textToEncode = document.getElementById('text-input').value;
+
+            document.getElementById('qrcode').innerHTML = '';
+
+            generatedQRCode = new QRCode(document.getElementById("qrcode"), {
+                text: textToEncode,
+                width: 128,
+                height: 128
+            });
+        }
+
+        function downloadQRCode() {
+            if (generatedQRCode) {
+                var imageDataUrl = document.getElementById('qrcode').getElementsByTagName('img')[0].src;
+
+                fetch(imageDataUrl)
+                    .then(res => res.blob())
+                    .then(blob => {
+                        var link = document.createElement('a');
+                        link.href = URL.createObjectURL(blob);
+                        link.download = 'qrcode.png';
+
+                        document.body.appendChild(link);
+
+                        link.click();
+
+                        document.body.removeChild(link);
+                    });
+            } else {
+                alert('Generate QR code first');
+            }
+        }
+    </script>
+</body>
+</html>

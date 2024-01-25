@@ -1,0 +1,53 @@
+body {
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: "Tahoma";
+    text-align: left;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+#label {
+    font-size: 6vh;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 10vh;
+    margin-left: 1vw;
+    text-size-adjust: auto;
+}
+
+#text-input {
+    margin-top: 1vh;
+    width: 90vw;
+    height: 5vh;
+    font-size: 4vh;
+    font-family: "Tahoma";
+    text-align: left;
+    font-weight: bold;
+}
+
+.button {
+    margin-top: 1vh;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    margin-bottom: 3vh;
+    width: 44vw;
+    height: 5vh;
+    font-size: 20px;
+    font-family: "Tahoma";
+    text-align: center;
+    font-weight: bold;
+    background-color: #ffffff;
+    color: #000000;
+    border: 0;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #b4b4b4;
+}
